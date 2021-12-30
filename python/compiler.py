@@ -101,7 +101,7 @@ def _decode(line):
         # isnumeric doesn't work with negative numbers.
         if parts[1].lstrip('-').isnumeric():
             return Instruction(Opcode[parts[0] + '_LIT'], label=label, src=int(parts[1]))
-        return Instruction(Opcode(Opcode[parts[0] + '_REG']), label=label, src=Register[parts[1]])
+        return Instruction(Opcode[parts[0] + '_REG'], label=label, src=Register[parts[1]])
 
      # These jumps are all to a destination.  The VM cares what operator it is, we don't.
     if parts[0] in ['JMP', 'JEZ', 'JNZ', 'JGZ', 'JLZ']:
